@@ -64,7 +64,9 @@ stages:
 
     - publish: '$(Build.ArtifactStagingDirectory)'
       artifact: drop
-
+    - task: WhiteSource@21
+      inputs:
+        cwd: '$(System.DefaultWorkingDirectory)'
 - stage: 'Deploy'
   displayName: 'Deploy the web application'
   dependsOn: Build
